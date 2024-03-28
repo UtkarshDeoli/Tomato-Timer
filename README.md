@@ -1,12 +1,12 @@
 # Getting Started
 ## How to setup ?
 1. Clone the repo
-`git clone https://github.com/UtkarshDeoli/Tomato-Timer`
+`git clone https://github.com/UtkarshDeoli/Tomato-Timer.git`
 
-2 . cd to dir
+2. cd to dir
 
-Get Dependency flutter pub get
+3. Get Dependency flutter pub get
 
-Create flutter create .
+4. Create flutter create .
 
-Run flutter run
+5. Run flutter run
