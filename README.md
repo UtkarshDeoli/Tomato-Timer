@@ -1,19 +1,12 @@
-Getting Started
-How to setup ?
-Clone the repo
-git clone https://github.com/UtkarshDeoli/zero_chat.git
+# Getting Started
+## How to setup ?
+1. Clone the repo
+`git clone https://github.com/UtkarshDeoli/Tomato-Timer`
 
-cd to zero_chat cd zero_chat
+2 . cd to dir
 
 Get Dependency flutter pub get
 
 Create flutter create .
 
 Run flutter run
-
-Or just copy this to your terminal:
-  git clone https://github.com/UtkarshDeoli/zero_chat.git
-  cd zero_chat
-  flutter pub get
-  flutter create .
-  flutter run
