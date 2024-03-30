@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:tamatar/Shared/styleSheet.dart';
 import 'package:tamatar/Widgets/pomodoro.dart';
 
-double studyTime = 10 - 1;
-double restTime = 5 - 1;
+double studyTime = 60 * 60;
+double restTime = 15 * 60;
 double currentActiveTime = studyTime;
 int numberOfSessons = 4;
 int currentSesson = 0;
@@ -41,68 +41,76 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       //body starts here
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const PomodoroFeild(),
-            Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
-                  child: SizedBox(
-                    height: getWidth(context, 600) / 2,
-                    width: getWidth(context, 600) / 2,
-                    child: CircularProgressIndicator(
-                      backgroundColor: kcolor3,
-                      color: Colors.green,
-                      strokeWidth: 15,
-                      value: percentComplete,
-                      strokeCap: StrokeCap.round,
-                      semanticsValue: currentTime.ceil().toString(),
-                    ),
-                  ),
-                ),
-                Column(
-                  children: [
-                    Text(
-                      currentTime.ceil().toString(),
-                      style: const TextStyle(fontSize: 30),
-                    ),
-                    Text(
-                      (study) ? "Focus!" : "Rest Buddy!",
-                      style: const TextStyle(fontSize: 30),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(100, 0, 100, 120),
-              child: Container(
-                height: 40,
-                decoration: BoxDecoration(
-                  color: kcolor3,
-                  borderRadius: BorderRadius.circular(40),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: marks,
-                    ),
-                  ),
-                ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              const PomodoroFeild(),
+              const SizedBox(
+                height: 80,
               ),
-            )
-          ],
+              Stack(
+                alignment: AlignmentDirectional.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+                    child: SizedBox(
+                      height: getWidth(context, 600) / 2,
+                      width: getWidth(context, 600) / 2,
+                      child: CircularProgressIndicator(
+                        backgroundColor: kcolor3,
+                        color: Colors.green,
+                        strokeWidth: 15,
+                        value: percentComplete,
+                        strokeCap: StrokeCap.round,
+                        semanticsValue: currentTime.ceil().toString(),
+                      ),
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        "${((studyTime - currentTime) / 60).floor()} min",
+                        style: const TextStyle(fontSize: 30),
+                      ),
+                      Text(
+                        (study) ? "Focus!" : "Rest Buddy!",
+                        style: const TextStyle(fontSize: 30),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(100, 0, 100, 120),
+                child: Container(
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: kcolor3,
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: marks,
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
             onPressed: () {
@@ -114,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 : const Icon(Icons.play_arrow),
           ),
           const SizedBox(
-            width: 20,
+            height: 20,
           ),
           FloatingActionButton(
             onPressed: () {

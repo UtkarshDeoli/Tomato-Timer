@@ -8,7 +8,7 @@ class PomodoroFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20.0, 40.0, 20, 0),
+      padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20, 0),
       child: Container(
         decoration: BoxDecoration(
           color: kcolor3,
