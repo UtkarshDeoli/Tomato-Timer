@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tamatar/Pages/pomoHome.dart';
+import 'package:tamatar/Pages/pomo_home.dart';
 import 'package:tamatar/Shared/theme.dart';
 
 void main() {

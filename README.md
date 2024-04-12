@@ -7,8 +7,8 @@
 > Or Click Here [APK](https://github.com/UtkarshDeoli/Tomato-Timer/releases/download/prerelease/app-release.apk)
 
 ## Demo
-
 ### Function of Start, Pause, Reset 
+
 
 ## How to setup ?
 1. Clone the repo

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tamatar/Shared/styleSheet.dart';
+import 'package:tamatar/Shared/style_sheet.dart';
 
 var customTheme = ThemeData(
   primaryColor: kbackgroundDark,

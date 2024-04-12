@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:tamatar/Shared/styleSheet.dart';
+import 'package:tamatar/Shared/style_sheet.dart';
 import 'package:tamatar/Widgets/pomodoro.dart';
 
 double studyTime = 70;
@@ -10,7 +10,7 @@ int numberOfSessons = 4;
 int currentSesson = 0;
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
