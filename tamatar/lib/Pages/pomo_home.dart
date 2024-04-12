@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:tamatar/Shared/style_sheet.dart';
 import 'package:tamatar/Widgets/pomodoro.dart';
 
-double studyTime = 70;
-double restTime = 15;
+double studyTime = 65;
+double restTime = 66;
 double currentActiveTime = studyTime;
 int numberOfSessons = 4;
 int currentSesson = 0;
@@ -70,9 +70,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     children: [
                       Text(
-                        ((studyTime - currentTime) < 60)
-                            ? "${(studyTime - currentTime).ceil()} sec"
-                            : "${((studyTime - currentTime) / 60).floor()}min ${((studyTime - currentTime) % 60).floor()} sec",
+                        (study)
+                            ? ((studyTime - currentTime) < 60)
+                                ? "${(studyTime - currentTime).ceil()} sec"
+                                : "${((studyTime - currentTime) / 60).floor()}min ${((studyTime - currentTime) % 60).floor()} sec"
+                            : ((restTime - currentTime) < 60)
+                                ? "${(restTime - currentTime).ceil()} sec"
+                                : "${((restTime - currentTime) / 60).floor()}min ${((restTime - currentTime) % 60).floor()} sec",
                         style: const TextStyle(fontSize: 30),
                       ),
                       Text(

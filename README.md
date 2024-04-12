@@ -22,3 +22,10 @@
 
 
 5. Run flutter run
+
+## Todo
+
+- [ ] Make a settings page where you can create different types of pomodoro timers.
+- [ ] Implement a drop-down selector in the top bar of the timer menu to choose from your premade timers.
+- [ ] Automatically save completed sessions and display them in a specific history page.
+- [ ] Implement either a stopwatch or alarm feature.
