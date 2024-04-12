@@ -1,4 +1,10 @@
 # Getting Started
+
+## How to Download ?
+> Click on the resources
+
+
+
 ## How to setup ?
 1. Clone the repo
 `git clone https://github.com/UtkarshDeoli/Tomato-Timer.git`
