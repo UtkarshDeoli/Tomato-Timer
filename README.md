@@ -1,8 +1,10 @@
 # Getting Started
 
 ## How to Download ?
-> Click on the resources
-
+> Click on the resources and download the latest APK
+>
+> 
+> Or Click Here [APK](https://github.com/UtkarshDeoli/Tomato-Timer/releases/download/prerelease/app-release.apk)
 
 
 ## How to setup ?
