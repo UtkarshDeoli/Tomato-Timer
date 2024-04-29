@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:tamatar/Pages/pomo_maker.dart';
 import 'package:tamatar/Shared/style_sheet.dart';
 import 'package:tamatar/Widgets/pomodoro.dart';
 
-double studyTime = 65;
-double restTime = 66;
+double studyTime = 45 * 60;
+double restTime = 15 * 60;
 double currentActiveTime = studyTime;
 int numberOfSessons = 4;
 int currentSesson = 0;
@@ -73,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         (study)
                             ? ((studyTime - currentTime) < 60)
                                 ? "${(studyTime - currentTime).ceil()} sec"
-                                : "${((studyTime - currentTime) / 60).floor()}min ${((studyTime - currentTime) % 60).floor()} sec"
+                                : "${((studyTime - currentTime) / 60).floor()}min"
                             : ((restTime - currentTime) < 60)
                                 ? "${(restTime - currentTime).ceil()} sec"
                                 : "${((restTime - currentTime) / 60).floor()}min ${((restTime - currentTime) % 60).floor()} sec",
@@ -119,6 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: "btn2",
             onPressed: () {
               if (timerStarted == false) startTimer();
               if (timerStarted == true) stopTimer();
@@ -131,6 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 20,
           ),
           FloatingActionButton(
+            heroTag: "btn1",
             onPressed: () {
               setState(() {
                 currentTime = 0;
@@ -147,7 +150,12 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             IconButton(
               icon: const Icon(Icons.add_business_outlined),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PomoMakerPage()),
+                );
+              },
             ),
             IconButton(
               icon: const Icon(Icons.timer),
