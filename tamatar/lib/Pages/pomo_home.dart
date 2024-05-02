@@ -9,6 +9,7 @@ double restTime = 15 * 60;
 double currentActiveTime = studyTime;
 int numberOfSessons = 4;
 int currentSesson = 0;
+String taskName = "No Name";
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,7 +47,38 @@ class _HomeScreenState extends State<HomeScreen> {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
-              const PomodoroFeild(),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20, 0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: kcolor3,
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  height: 70,
+                  width: getWidth(context, 700),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 4,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 25.0),
+                          child: Text(taskName),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 25.0),
+                        child: IconButton(
+                          icon: const Icon(Icons.edit, color: Colors.white),
+                          onPressed: () {
+                            _openPomoMaker(context);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // end of Title pomodoro
               const SizedBox(
                 height: 80,
               ),
@@ -88,6 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
+              // end of dial
               const SizedBox(
                 height: 50,
               ),
@@ -219,5 +252,25 @@ class _HomeScreenState extends State<HomeScreen> {
       marks.add(const Icon(Icons.star, color: Colors.amber));
     }
     currentSesson++;
+  }
+
+  Future<void> _openPomoMaker(BuildContext context) async {
+    final data = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PomoMakerPage()),
+    );
+    if (!context.mounted) return;
+    setState(() {
+      taskName = data[0];
+      studyTime = data[1] * 60;
+      restTime = data[2] * 60;
+      numberOfSessons = data[3].round();
+      marks = List.generate(numberOfSessons, (index) {
+        return const Icon(
+          Icons.star,
+          color: Colors.grey,
+        );
+      });
+    });
   }
 }
