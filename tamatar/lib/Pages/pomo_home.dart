@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:tamatar/Pages/pomo_maker.dart';
+import 'package:tamatar/Pages/pomo_stop_watch.dart';
+import 'package:tamatar/Pages/pomo_timer.dart';
+import 'package:tamatar/Pages/settings.dart';
 import 'package:tamatar/Shared/style_sheet.dart';
-import 'package:tamatar/Widgets/pomodoro.dart';
 
 double studyTime = 45 * 60;
 double restTime = 15 * 60;
@@ -182,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: const Icon(Icons.add_business_outlined),
+              icon: const Icon(Icons.add_alarm),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -192,15 +194,36 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             IconButton(
               icon: const Icon(Icons.timer),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => pomoTimer(),
+                  ),
+                );
+              },
             ),
             IconButton(
               icon: const Icon(Icons.alarm),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => stopWatch(),
+                  ),
+                );
+              },
             ),
             IconButton(
               icon: const Icon(Icons.settings),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => settingPomo(),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -261,10 +284,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
     if (!context.mounted) return;
     setState(() {
-      taskName = data[0];
-      studyTime = data[1] * 60;
-      restTime = data[2] * 60;
-      numberOfSessons = data[3].round();
+      taskName = (data == null) ? "New Task" : data[0];
+      studyTime = (data == null) ? 60 : data[1] * 60;
+      restTime = (data == null) ? 60 : data[2] * 60;
+      numberOfSessons = (data == null) ? 4 : data[3].round();
       marks = List.generate(numberOfSessons, (index) {
         return const Icon(
           Icons.star,

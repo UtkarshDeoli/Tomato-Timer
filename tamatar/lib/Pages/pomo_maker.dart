@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../Shared/style_sheet.dart';
 
 class PomoMakerPage extends StatefulWidget {
   @override
@@ -7,7 +6,7 @@ class PomoMakerPage extends StatefulWidget {
 }
 
 class _PomoMakerPageState extends State<PomoMakerPage> {
-  List<dynamic> data = ["", 100.0, 25.0, 1.0];
+  List<dynamic> data = ["New Task", 100.0, 25.0, 1.0];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +23,8 @@ class _PomoMakerPageState extends State<PomoMakerPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextField(
+                TextFormField(
+                  initialValue: "New Task",
                   decoration: InputDecoration(
                       labelText: "Name",
                       labelStyle: TextStyle(
