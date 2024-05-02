@@ -25,10 +25,7 @@ class _PomodoroFeildState extends State<PomodoroFeild> {
           children: [
             const Expanded(
               flex: 4,
-              child: Padding(
-                padding: EdgeInsets.only(left: 25),
-                child: Text("Name of the task"),
-              ),
+              child: Text("Name of the task"),
             ),
             Padding(
               padding: EdgeInsets.only(right: 25.0),
